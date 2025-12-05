@@ -81,8 +81,8 @@ def testing_network(num_test_samples, data_set_test, coeffs_file):
 
 
 # Files used for the test
-data_set_test = "project_data/test_batch.bin"
-coeffs_file   = "project_data/CNN_coeffs_x3x.txt"
+data_set_test = "../project_data/test_batch.bin"
+coeffs_file   = "../project_data/CNN_coeffs_3x3.txt"
 
 # Number of image to be inputed to the CNN
 num_test_samples = 100
