@@ -3,7 +3,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 from images_processing import *
 
-def Calc_Conv_RELU_1(image_in, kernel_w, biases_w):
+
+
+ 
+def calc_conv_relu_1(image_in, kernel_w, biases_w): # TO-DO: change image_in param name to feature_map
+    """
+    Perform convolution opetation and RELU for the first layer.
+        Parameters:
+            image_in : the input feature map for the layer
+            kernel_w : kernel weights
+            biases_w : biases coeffs
+        Returns:
+            cnv_calc: output feature map with dimensions 64x24x24
+    """
+
     num_kernels         = 64
     x_out, y_out        = 24, 24
 
@@ -29,7 +42,18 @@ def Calc_Conv_RELU_1(image_in, kernel_w, biases_w):
     return cnv_calc     # image shape : channel=64, columns=24, rows=24
 
 
-def Calc_Conv_RELU_2(image_in, kernel_w, biases_w):
+
+
+def calc_conv_relu_2(image_in, kernel_w, biases_w):
+    """
+    Perform convolution opetation and RELU for the second layer.
+        Parameters:
+            image_in : the input feature map for the layer
+            kernel_w : kernel weights
+            biases_w : biases coeffs
+        Returns:
+            cnv_calc: output feature map with dimensions 24x12x12
+    """
     num_kernels         = 32
     x_out, y_out        = 12, 12
 
@@ -53,7 +77,19 @@ def Calc_Conv_RELU_2(image_in, kernel_w, biases_w):
     return cnv_calc     # image shape : channel=24,  rows=12, columns=12
 
 
-def Calc_Conv_RELU_3(image_in, kernel_w, biases_w):
+
+
+def calc_conv_relu_3(image_in, kernel_w, biases_w):
+    """
+    Perform convolution opetation and RELU for the third layer.
+        Parameters:
+            image_in : the input feature map for the layer
+            kernel_w : kernel weights
+            biases_w : biases coeffs
+        Returns:
+            cnv_calc: output feature map with dimensions 20x6x6
+    """
+    
     num_kernels         = 20
     x_out, y_out        = 6, 6
 

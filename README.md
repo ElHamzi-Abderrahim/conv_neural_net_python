@@ -28,7 +28,12 @@ As shown above the network is taking a an RGB image with 32x32 dimension and out
         - `Binary_to_Tuple()`: which transforms the extracted data (image label, image) in the file to a tuple `(label, red_channel_32x32, green_channel_32x32, blue_channel_32x32)`.
         - `center_channel(matrice_32x32)`: which centers each channel of the image (red, blue, or green channel) from *32x32* to *24x24*.
         - `center_image(nCentered_Image)`: which centers the whole image by centering each channel using `center_channel()` function.
-        - `normalise_image(centered_image)`: normalizing the image by applying a mathematical formula which does not affect the image content, in order to be able to detecte the object in the image.
+        - `normalise_image(centered_image)`: normalizing the image by applying a mathematical formula *(formula bellow)* which does not affect the image content, in order to be able to detecte the object in the image.
+
+        <p align="center">
+            <img src="doc/normalize_formula.png" alt="drawing" width="350">
+        </p>
+        
         - `Display_image(image)`: to display the image.
 
     - `src/convolutions.py`: which contains the function:

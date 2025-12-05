@@ -1,15 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-image_number = 10000
-image_size = 3073
 
 
-################################################
-################ EXTRACT BIASES ################
-################################################
-def extract_biases(label_biases, start_line):
-    with open("project_data/CNN_coeffs_3x3.txt", 'r') as file:
+def extract_biases(coeffs_file, label_biases, start_line):
+    """
+    Extract biases coefficient for convolution operation.
+        Parameters:
+            coeffs_file : the text file from which the coefficient will be extracted
+            label_biases: label of coefficients to be extracted
+            start_line  : the starting line in the file (which is the line after 
+                          the last line of previousely extracted coeffs), to save some time.
+        Returns:
+            biases_list: list of the coefficients
+    """
+
+    with open(coeffs_file, 'r') as file:
         lines = file.readlines()
 
     biases_list = []
@@ -34,22 +40,25 @@ def extract_biases(label_biases, start_line):
                 break
     return biases_list
 
-matrice_biases_1 = extract_biases("tensor_name:  conv1/biases", 0)
-matrice_biases_2 = extract_biases("tensor_name:  conv2/biases", 453)
-matrice_biases_3 = extract_biases("tensor_name:  conv3/biases", 5080)
-
-matrice_biases_local = extract_biases("tensor_name:  local3/biases", 6530)
 
 
-####################################################
-################ EXTRACT KERNEL WIEGHTS ############
-####################################################
-def extract_local_weights():
-    with open("project_data/CNN_coeffs_3x3.txt", 'r') as file:
+
+
+def extract_local_w(coeffs_file, label_weights, start_line):
+    """
+    Extract biases coefficient for perceptron operation.
+        Parameters:
+            coeffs_file : the text file from which the coefficient will be extracted
+            label_biases: label of coefficients to be extracted
+            start_line  : the starting line in the file (which is the line after 
+                          the last line of previousely extracted coeffs), to save some time.
+        Returns:
+            local_matrice: list of the coefficients
+    """
+    
+    with open(coeffs_file, 'r') as file:
         lines = file.readlines()
 
-    label_local_weights = "tensor_name:  local3/weights"
-    start_line = 6536
 
     local_matrice = np.empty((180, 10))
 
@@ -58,7 +67,7 @@ def extract_local_weights():
     index_10x = 0
     for line_indx in range(start_line, len(lines)):
         text_line = lines[line_indx][4:69]
-        if not lines[line_indx].find(label_local_weights) and not im_in :
+        if not lines[line_indx].find(label_weights) and not im_in :
             im_in = True
             continue
         elif(im_in):
@@ -79,25 +88,29 @@ def extract_local_weights():
                     break
     return local_matrice
 
-matrice_local = extract_local_weights()
 
 
-########################################################
-################ EXTRACT Conv 1 weights ################
-########################################################
-def extract_conv1_weights():
-    with open("project_data/CNN_coeffs_3x3.txt", 'r') as file:
+
+def extract_conv1_w(coeffs_file, label_conv, start_line):
+    """
+    Extract weights for convolution operation.
+        Parameters:
+            coeffs_file : the text file from which the coefficient will be extracted
+            label_biases: label of coefficients to be extracted
+            start_line  : the starting line in the file (which is the line after 
+                          the last line of previousely extracted coeffs), to save some time.
+        Returns:
+            weights_in_file: list of the extracted weights
+    """
+    with open(coeffs_file, 'r') as file:
         lines = file.readlines()
 
-    dimensions_step1 = [64, 3, 3, 3]
-    dimensions = dimensions_step1
-    start_line = 0
-    label_conv = "tensor_name:  conv1/weights"
+    dimensions = [64, 3, 3, 3] 
 
-    kernel_dim  = 64
-    channel_dim = 3
-    row_dim     = 3
-    column_dim  = 3
+    kernel_dim  = dimensions[0]
+    channel_dim = dimensions[1]
+    row_dim     = dimensions[2]
+    column_dim  = dimensions[3]
 
     m3x3_row        = 0
     m3x3_column     = 0
@@ -135,21 +148,29 @@ def extract_conv1_weights():
             break
     return weights_in_file
 
-matrice_conv1 = extract_conv1_weights()
 
-########################################################
-################ EXTRACT Conv 2 weights ################
-########################################################
-def extract_conv2_weights():
-    with open("project_data/CNN_coeffs_3x3.txt", 'r') as file:
+
+
+def extract_conv2_w(coeffs_file, label_conv, start_line):
+    """
+    Extract weights for convolution operation.
+        Parameters:
+            coeffs_file : the text file from which the coefficient will be extracted
+            label_biases: label of coefficients to be extracted
+            start_line  : the starting line in the file (which is the line after 
+                          the last line of previousely extracted coeffs), to save some time.
+        Returns:
+            weights_in_file: list of the extracted weights
+    """
+    with open(coeffs_file, 'r') as file:
         lines = file.readlines()
-    start_line = 452
-    label_conv = "tensor_name:  conv2/weights"
 
-    kernel_dim  = 32
-    channel_dim = 64
-    row_dim     = 3
-    column_dim  = 3
+    dimensions = [32, 64, 3, 3]
+
+    kernel_dim  = dimensions[0]
+    channel_dim = dimensions[1]
+    row_dim     = dimensions[2]
+    column_dim  = dimensions[3]
 
     m3x3_row        = 0
     m3x3_column     = 0
@@ -187,24 +208,29 @@ def extract_conv2_weights():
             break
     return weights_in_file
 
-matrice_conv2 = extract_conv2_weights()
 
-########################################################
-################ EXTRACT Conv 3 weights ################
-########################################################
-def extract_conv3_weights():
-    with open("project_data/CNN_coeffs_3x3.txt", 'r') as file:
+
+
+def extract_conv3_w(coeffs_file, label_conv, start_line):
+    """
+    Extract weights for convolution operation.
+        Parameters:
+            coeffs_file : the text file from which the coefficient will be extracted
+            label_biases: label of coefficients to be extracted
+            start_line  : the starting line in the file (which is the line after 
+                          the last line of previousely extracted coeffs), to save some time.
+        Returns:
+            weights_in_file: list of the extracted weights
+    """
+    with open(coeffs_file, 'r') as file:
         lines = file.readlines()
 
-    dimensions_step3 = [20, 32, 3, 3]
-    dimensions = dimensions_step3
-    start_line = 5080
-    label_conv = "tensor_name:  conv3/weights"
-
-    kernel_dim  = 20
-    channel_dim = 32
-    row_dim     = 3
-    column_dim  = 3
+    dimensions = [20, 32, 3, 3]
+   
+    kernel_dim  = dimensions[0]
+    channel_dim = dimensions[1]
+    row_dim     = dimensions[2]
+    column_dim  = dimensions[3]
 
     m3x3_row        = 0
     m3x3_column     = 0
@@ -242,7 +268,6 @@ def extract_conv3_weights():
             break
     return weights_in_file
 
-matrice_conv3 = extract_conv3_weights()
 
 
 
