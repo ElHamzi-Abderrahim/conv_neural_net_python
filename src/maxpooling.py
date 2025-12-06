@@ -4,12 +4,14 @@ import numpy as np
 def max_pool(input_fm ,filter_size, stride) :
     """
     Reshaping a matrice of 3x3x20 to 180 element.
-        Parameters:
-            input_fm    : The input feature map from the previous layer
-            filter_size : The filter size from which the max value will be taken
-            stride      : The stride matrice for stepping through the matrice
-        Returns:
-            output_fm : The output feature map of the layer
+    
+    Parameters:
+        input_fm    : The input feature map from the previous layer
+        filter_size : The filter size from which the max value will be taken
+        stride      : The stride matrice for stepping through the matrice
+    
+    Returns:
+        output_fm : The output feature map of the layer
     """
 
     dim_fx = int(len(input_fm[0])/2.0)
