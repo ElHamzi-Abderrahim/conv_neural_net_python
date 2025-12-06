@@ -7,10 +7,12 @@ import matplotlib.pyplot as plt
 def open_data_file(data_test_file):
     """
     Extracting binary data from a data_test_file.
-        Parameters:
-            data_test_file : path to the test data set file
-        Returns:
-            binary_data    : data in binary format
+    
+    Parameters:
+        data_test_file : path to the test data set file
+    
+    Returns:
+        binary_data    : data in binary format
     """
     with open(data_test_file, "rb") as file :
         binary_data = file.read()
@@ -22,13 +24,15 @@ def open_data_file(data_test_file):
 def binary_to_tuple(data_test_file, image_number, image_size):
     """
     Converting binary data to a list of tuples, each tuple is storing an image RGB with its label.
-        Parameters:
-            data_test_file : path to the test data set file
-            image_number   : number of images to fetched from the binary data
-            image_size     : size of each image (bytes)
-        Returns:
-            images         : stores a list of tuple of images
-                             each tuple (label, red_32x32, green_32x32, blue_32x32)
+    
+    Parameters:
+        data_test_file : path to the test data set file
+        image_number   : number of images to fetched from the binary data
+        image_size     : size of each image (bytes)
+    
+    Returns:
+        images         : stores a list of tuple of images
+                            each tuple (label, red_32x32, green_32x32, blue_32x32)
     """
     start = 0
     images = []
@@ -53,10 +57,12 @@ def binary_to_tuple(data_test_file, image_number, image_size):
 def center_channel(matrice_32x32) :
     """
     Centering a 32x32 channel (Red, Green, or Blue) to 24x24.
-        Parameters:
-            matrice_32x32 : channel with a dimensions 32x32
-        Returns:
-            matrice_24x24 : converted channel with dimensions 24x24 
+    
+    Parameters:
+        matrice_32x32 : channel with a dimensions 32x32
+    
+    Returns:
+        matrice_24x24 : converted channel with dimensions 24x24 
     """
 
     debut_ligne = (32 - 24) // 2
@@ -72,10 +78,12 @@ def center_channel(matrice_32x32) :
 def center_image(non_centered_image):
     """
     Centering a 32x32 image (Red, Green, and Blue) to an image of 24x24.
-        Parameters:
-            non_centered_image : non centered RGB image 32x32
-        Returns:
-            centered_image     : centered RGB image 32x32
+    
+    Parameters:
+        non_centered_image : non centered RGB image 32x32
+    
+    Returns:
+        centered_image     : centered RGB image 32x32
     """
     label = non_centered_image[0]
     red_ch_24x24     =  center_channel(non_centered_image[1])
@@ -90,10 +98,12 @@ def center_image(non_centered_image):
 def normalise_image(centered_image):
     """
     Normalizing the image format without touching the image properties, check README to see the formula.
-        Parameters:
-            centered_image   : centered RGB image 24x24 image to be normalized
-        Returns:
-            normalized_image : RGB image 32x32 normalized image
+
+    Parameters:
+        centered_image   : centered RGB image 24x24 image to be normalized
+    
+    Returns:
+        normalized_image : RGB image 32x32 normalized image
     """
     red_24x24 = centered_image[1].flatten()
     green_24x24 = centered_image[2].flatten()
@@ -120,10 +130,12 @@ def normalise_image(centered_image):
 def display_image(image):
     """
     Basic function to display the image
-        Parameters:
-            image: image to be displayed
-        Returns:
-            No Return value
+    
+    Parameters:
+        image: image to be displayed
+    
+    Returns:
+        None
     """
     rgb_image = np.stack(image, axis=-1)
     plt.imshow(rgb_image)

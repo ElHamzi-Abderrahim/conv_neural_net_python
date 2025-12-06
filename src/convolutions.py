@@ -9,12 +9,14 @@ from images_processing import *
 def calc_conv_relu_1(image_in, kernel_w, biases_w): # TO-DO: change image_in param name to feature_map
     """
     Perform convolution opetation and RELU for the first layer.
-        Parameters:
-            image_in : the input feature map for the layer
-            kernel_w : kernel weights
-            biases_w : biases coeffs
-        Returns:
-            cnv_calc: output feature map with dimensions 64x24x24
+    
+    Parameters:
+        image_in : the input feature map for the layer
+        kernel_w : kernel weights
+        biases_w : biases coeffs
+    
+    Returns:
+        cnv_calc: output feature map with dimensions 64x24x24
     """
 
     num_kernels         = 64
@@ -47,12 +49,14 @@ def calc_conv_relu_1(image_in, kernel_w, biases_w): # TO-DO: change image_in par
 def calc_conv_relu_2(image_in, kernel_w, biases_w):
     """
     Perform convolution opetation and RELU for the second layer.
-        Parameters:
-            image_in : the input feature map for the layer
-            kernel_w : kernel weights
-            biases_w : biases coeffs
-        Returns:
-            cnv_calc: output feature map with dimensions 24x12x12
+    
+    Parameters:
+        image_in : the input feature map for the layer
+        kernel_w : kernel weights
+        biases_w : biases coeffs
+    
+    Returns:
+        cnv_calc: output feature map with dimensions 24x12x12
     """
     num_kernels         = 32
     x_out, y_out        = 12, 12
@@ -82,12 +86,14 @@ def calc_conv_relu_2(image_in, kernel_w, biases_w):
 def calc_conv_relu_3(image_in, kernel_w, biases_w):
     """
     Perform convolution opetation and RELU for the third layer.
-        Parameters:
-            image_in : the input feature map for the layer
-            kernel_w : kernel weights
-            biases_w : biases coeffs
-        Returns:
-            cnv_calc: output feature map with dimensions 20x6x6
+    
+    Parameters:
+        image_in : the input feature map for the layer
+        kernel_w : kernel weights
+        biases_w : biases coeffs
+
+    Returns:
+        cnv_calc: output feature map with dimensions 20x6x6
     """
     
     num_kernels         = 20

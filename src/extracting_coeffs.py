@@ -6,13 +6,15 @@ import matplotlib.pyplot as plt
 def extract_biases(coeffs_file, label_biases, start_line):
     """
     Extract biases coefficient for convolution operation.
-        Parameters:
-            coeffs_file : the text file from which the coefficient will be extracted
-            label_biases: label of coefficients to be extracted
-            start_line  : the starting line in the file (which is the line after 
-                          the last line of previousely extracted coeffs), to save some time.
-        Returns:
-            biases_list: list of the coefficients
+    
+    Parameters:
+        coeffs_file : the text file from which the coefficient will be extracted
+        label_biases: label of coefficients to be extracted
+        start_line  : the starting line in the file (which is the line after 
+                        the last line of previousely extracted coeffs), to save some time.
+    
+    Returns:
+        biases_list: list of the coefficients
     """
 
     with open(coeffs_file, 'r') as file:
@@ -47,13 +49,15 @@ def extract_biases(coeffs_file, label_biases, start_line):
 def extract_local_w(coeffs_file, label_weights, start_line):
     """
     Extract biases coefficient for perceptron operation.
-        Parameters:
-            coeffs_file : the text file from which the coefficient will be extracted
-            label_biases: label of coefficients to be extracted
-            start_line  : the starting line in the file (which is the line after 
-                          the last line of previousely extracted coeffs), to save some time.
-        Returns:
-            local_matrice: list of the coefficients
+    
+    Parameters:
+        coeffs_file : the text file from which the coefficient will be extracted
+        label_biases: label of coefficients to be extracted
+        start_line  : the starting line in the file (which is the line after 
+                        the last line of previousely extracted coeffs), to save some time.
+    
+    Returns:
+        local_matrice: list of the coefficients
     """
     
     with open(coeffs_file, 'r') as file:
@@ -94,13 +98,15 @@ def extract_local_w(coeffs_file, label_weights, start_line):
 def extract_conv1_w(coeffs_file, label_conv, start_line):
     """
     Extract weights for convolution operation.
-        Parameters:
-            coeffs_file : the text file from which the coefficient will be extracted
-            label_biases: label of coefficients to be extracted
-            start_line  : the starting line in the file (which is the line after 
-                          the last line of previousely extracted coeffs), to save some time.
-        Returns:
-            weights_in_file: list of the extracted weights
+    
+    Parameters:
+        coeffs_file : the text file from which the coefficient will be extracted
+        label_biases: label of coefficients to be extracted
+        start_line  : the starting line in the file (which is the line after 
+                        the last line of previousely extracted coeffs), to save some time.
+    
+    Returns:
+        weights_in_file: list of the extracted weights
     """
     with open(coeffs_file, 'r') as file:
         lines = file.readlines()
@@ -154,13 +160,15 @@ def extract_conv1_w(coeffs_file, label_conv, start_line):
 def extract_conv2_w(coeffs_file, label_conv, start_line):
     """
     Extract weights for convolution operation.
-        Parameters:
-            coeffs_file : the text file from which the coefficient will be extracted
-            label_biases: label of coefficients to be extracted
-            start_line  : the starting line in the file (which is the line after 
-                          the last line of previousely extracted coeffs), to save some time.
-        Returns:
-            weights_in_file: list of the extracted weights
+    
+    Parameters:
+        coeffs_file : the text file from which the coefficient will be extracted
+        label_biases: label of coefficients to be extracted
+        start_line  : the starting line in the file (which is the line after 
+                        the last line of previousely extracted coeffs), to save some time.
+    
+    Returns:
+        weights_in_file: list of the extracted weights
     """
     with open(coeffs_file, 'r') as file:
         lines = file.readlines()
@@ -214,13 +222,15 @@ def extract_conv2_w(coeffs_file, label_conv, start_line):
 def extract_conv3_w(coeffs_file, label_conv, start_line):
     """
     Extract weights for convolution operation.
-        Parameters:
-            coeffs_file : the text file from which the coefficient will be extracted
-            label_biases: label of coefficients to be extracted
-            start_line  : the starting line in the file (which is the line after 
-                          the last line of previousely extracted coeffs), to save some time.
-        Returns:
-            weights_in_file: list of the extracted weights
+    
+    Parameters:
+        coeffs_file : the text file from which the coefficient will be extracted
+        label_biases: label of coefficients to be extracted
+        start_line  : the starting line in the file (which is the line after 
+                        the last line of previousely extracted coeffs), to save some time.
+    
+    Returns:
+        weights_in_file: list of the extracted weights
     """
     with open(coeffs_file, 'r') as file:
         lines = file.readlines()

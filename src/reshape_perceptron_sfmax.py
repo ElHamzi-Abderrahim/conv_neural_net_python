@@ -5,10 +5,12 @@ import numpy as np
 def reshape_matrice_to_180(matrices_20x3x3): # FIX NAME
     """
     Reshaping a matrice of 3x3x20 to 180 element.
-        Parameters:
-            matrices_20x3x3 : the input matrice
-        Returns:
-            reshaped_matrice: one dimension array of 180 elements
+    
+    Parameters:
+        matrices_20x3x3 : the input matrice
+    
+    Returns:
+        reshaped_matrice: one dimension array of 180 elements
     """
     reshaped_matrice = np.zeros(20*3*3)
     for rows in range (3):
@@ -23,12 +25,14 @@ def reshape_matrice_to_180(matrices_20x3x3): # FIX NAME
 def perceptron(i_1x180, m_180x10, biases_1x10):
     """
     Performs the perceptron operation.
-        Parameters:
-            i_1x180     : the Input matrice
-            m_180x10    : the Weights matrice
-            biases_1x10 : the Biases matrice
-        Returns:
-            result_1x10: 
+    
+    Parameters:
+        i_1x180     : the Input matrice
+        m_180x10    : the Weights matrice
+        biases_1x10 : the Biases matrice
+    
+    Returns:
+        result_1x10: 
     """
     result_1x10 = np.empty(10)
     for j in range(10) :
@@ -45,10 +49,12 @@ def perceptron(i_1x180, m_180x10, biases_1x10):
 def soft_max(matrice_10x1):
     """
     Calculates the probability of belonging to a class.
-        Parameters:
-            matrice_10x1    : the Input matrice
-        Returns:
-            prob_belong_10x1: returns 10 elements, each represents the probability of belonging to the corresponding class 
+    
+    Parameters:
+        matrice_10x1    : the Input matrice
+    
+    Returns:
+        prob_belong_10x1: returns 10 elements, each represents the probability of belonging to the corresponding class 
     """
     prob_belong_10x1 = np.empty(10)
     _sum = 0 
