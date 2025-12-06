@@ -70,13 +70,16 @@ def testing_network(num_test_samples, data_set_test_f, coeffs_f, image_size):
         centered_image = center_image(images[i])
         normalized_image = normalise_image(centered_image)
 
-        result_convolution1 = calc_conv_relu_1(normalized_image, matrice_conv1, matrice_biases_1)
+        # result_convolution1 = calc_conv_relu_1(normalized_image, matrice_conv1, matrice_biases_1, [64, 24, 24])
+        result_convolution1 = calc_conv_relu(normalized_image, matrice_conv1, matrice_biases_1, 3, [64, 24, 24])
         max_pooled_1 = max_pool(result_convolution1, maxP_filter, maxP_stride)
 
-        result_convolution2 = calc_conv_relu_2(max_pooled_1, matrice_conv2, matrice_biases_2)
+        # result_convolution2 = calc_conv_relu_2(max_pooled_1, matrice_conv2, matrice_biases_2, [32, 12, 12])
+        result_convolution2 = calc_conv_relu(max_pooled_1, matrice_conv2, matrice_biases_2, 64 ,[32, 12, 12])
         max_pooled_2 = max_pool(result_convolution2, maxP_filter, maxP_stride)
 
-        result_convolution3 = calc_conv_relu_3(max_pooled_2, matrice_conv3, matrice_biases_3)
+        # result_convolution3 = calc_conv_relu_3(max_pooled_2, matrice_conv3, matrice_biases_3, [20, 6, 6])
+        result_convolution3 = calc_conv_relu(max_pooled_2, matrice_conv3, matrice_biases_3, 32, [20, 6, 6])
         max_pooled_3 = max_pool(result_convolution3, maxP_filter, maxP_stride)
 
         reshaped = reshape_matrice_to_180(max_pooled_3)
@@ -88,17 +91,17 @@ def testing_network(num_test_samples, data_set_test_f, coeffs_f, image_size):
         activated_class = np.argmax(result_class)
         # print(result_class)
         print("+-------------------------------------------------------------")
-        print(f"Activated Class: {activated_class}")
+        print(f"| Activated Class: {activated_class}")
 
         checked_statistic += 1
         if activated_class == centered_image[0]:  
             succeed_statistic += 1
-            print("[Pass] Result matches image label.")
+            print("|    > [Pass] Result matches image label.")
         else:    
-            print("[Fail] Result is different from image label.")
+            print("|    > [Fail] Result is different from image label.")
             
         success_rate = (succeed_statistic / checked_statistic) * 100
-        print(f"Success Rate (in Real-Time): {success_rate}%")
+        print(f"| - Success Rate (in Real-Time): {success_rate}%")
         
     print("+=====================================================")
     print("                  End of the test                     ")
