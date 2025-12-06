@@ -70,15 +70,12 @@ def testing_network(num_test_samples, data_set_test_f, coeffs_f, image_size):
         centered_image = center_image(images[i])
         normalized_image = normalise_image(centered_image)
 
-        # result_convolution1 = calc_conv_relu_1(normalized_image, matrice_conv1, matrice_biases_1, [64, 24, 24])
         result_convolution1 = calc_conv_relu(normalized_image, matrice_conv1, matrice_biases_1, 3, [64, 24, 24])
         max_pooled_1 = max_pool(result_convolution1, maxP_filter, maxP_stride)
 
-        # result_convolution2 = calc_conv_relu_2(max_pooled_1, matrice_conv2, matrice_biases_2, [32, 12, 12])
         result_convolution2 = calc_conv_relu(max_pooled_1, matrice_conv2, matrice_biases_2, 64 ,[32, 12, 12])
         max_pooled_2 = max_pool(result_convolution2, maxP_filter, maxP_stride)
 
-        # result_convolution3 = calc_conv_relu_3(max_pooled_2, matrice_conv3, matrice_biases_3, [20, 6, 6])
         result_convolution3 = calc_conv_relu(max_pooled_2, matrice_conv3, matrice_biases_3, 32, [20, 6, 6])
         max_pooled_3 = max_pool(result_convolution3, maxP_filter, maxP_stride)
 
