@@ -47,9 +47,10 @@ def testing_network(num_test_samples, data_set_test_f, coeffs_f, image_size):
     images = binary_to_tuple(data_set_test_f, num_test_samples, image_size)
     
     # Extracting coeffecients for convolution operations
-    matrice_conv1 = extract_conv1_w(coeffs_f, "tensor_name:  conv1/weights", 0)
-    matrice_conv2 = extract_conv2_w(coeffs_f, "tensor_name:  conv2/weights", 452)
-    matrice_conv3 = extract_conv3_w(coeffs_f, "tensor_name:  conv3/weights", 5080)
+    matrice_conv1 = extract_conv_w(coeffs_f, "tensor_name:  conv1/weights", [64, 3, 3, 3 ],  0)
+    matrice_conv2 = extract_conv_w(coeffs_f, "tensor_name:  conv2/weights", [32, 64, 3, 3], 452)
+    matrice_conv3 = extract_conv_w(coeffs_f, "tensor_name:  conv3/weights", [20, 32, 3, 3], 5080)
+    
     # Extracting biases for convolution operations
     matrice_biases_1     = extract_biases(coeffs_f, "tensor_name:  conv1/biases", 0)
     matrice_biases_2     = extract_biases(coeffs_f, "tensor_name:  conv2/biases", 453)
