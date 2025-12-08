@@ -27,7 +27,7 @@ elif (args.data_dir != None):
     coeffs_file        = args.data_dir + "/CNN_coeffs_3x3.txt"
 
 if(args.image_iter == None):
-    image_iter = 100
+    image_iter = 10
 elif (args.image_iter != None):
     image_iter = args.image_iter
 
