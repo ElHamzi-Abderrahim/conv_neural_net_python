@@ -42,6 +42,8 @@ As shown above the network is taking a an RGB image with 32x32 dimension and out
 ### Note: 
 - 
 
+
+
 ## Overview:
 ### Project State: 
 - The CNN implementation is outputing the expected results.
@@ -56,7 +58,6 @@ As shown above the network is taking a an RGB image with 32x32 dimension and out
 - Python (used version: *3.12.1*)
 - Installed Numpy and Matplotlib python libraries
 
-
 ### How to use:
 - The main script to be run is: `src/main.py`, 
     - Can be run simply by running: `python src/main.py`
@@ -69,10 +70,26 @@ As shown above the network is taking a an RGB image with 32x32 dimension and out
 
 
 
-
-
 ## Project Structure: 
-    TO-DO
+    .
+    ├── doc
+    │   ├── cnn_schema.png
+    │   ├── conv_formula.png
+    │   ├── normalize_formula.png
+    │   └── softmax_formula.png
+    ├── project_data
+    │   ├── batches.meta.txt
+    │   ├── CNN_coeffs_3x3.txt
+    │   └── test_batch.bin
+    ├── README.md
+    └── src
+        ├── convolutions.py
+        ├── extracting_coeffs.py
+        ├── images_processing.py
+        ├── main.py
+        ├── maxpooling.py
+        ├── network_tests.py
+        └── reshape_perceptron_sfmax.py
 
 
 ## Contacts:
